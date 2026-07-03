@@ -89,9 +89,6 @@ fn main() -> bitcoincore_rpc::Result<()> {
         .require_network(Network::Regtest)
         .unwrap();
 
-    // Send 20 BTC from Miner to Trader
-    // Pay 20 BTC to the Trader. The one 50 BTC UTXO funds it => 1 input,
-    // 2 outputs (20 to Trader + change back to Miner).
     let txid = miner.send_to_address(
         &trader_address,
         Amount::from_btc(20.0)?,
